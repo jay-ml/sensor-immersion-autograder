@@ -1,0 +1,38 @@
+h1 { 
+	position:relative;
+	color:rgba(0, 0, 0, 1);
+	top:10px;
+	text-align: center;
+	font-family:"Times New Roman", Times, serif;
+	font-size:18px;
+	letter-spacing:0;
+}
+
+.text_box { 
+	background-color:rgba(255, 255, 255, 1);
+	position:relative;
+}
+
+.entry_box {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.submit_button{
+	text-align: center;
+}
+
+.submit{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 'bold';
+  color:#00000;
+  background-color: #72FF80;
+  position: relative;
+  align-content: center;
+  border:0;
+  border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border-bottom-left-radius:4px;
+	border-bottom-right-radius:4px;
+}

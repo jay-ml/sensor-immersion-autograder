@@ -2,8 +2,20 @@
 <html>
 <head>
 	<title>Autograder</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="javascript/script.js"></script>
 </head>
 <body>
-	<h1>Welcome to the Autograder!</h1>
-</body>
+	<h1>Autograder - Lesson # ___</h1>
+	<br/>
+	<div class="text_box"> 
+    	<textarea class="entry_box" rows="20" cols="100" name="student_code" id="sc" placeholder="paste code here";></textarea>
+    </div>
+    <br/>
+    <div class="submit_button">
+    	<button onclick="execute_student_code()" class='submit' type="submit" value="Submit">
+    		Submit
+    	</button> 
+    </div>
+</body> 
 </html>

@@ -8,6 +8,16 @@ h1 {
 	letter-spacing:0;
 }
 
+h2 {
+	position:relative;
+	color:rgba(0, 0, 0, 1);
+	top:0px;
+	text-align: center;
+	font-family:"Times New Roman", Times, serif;
+	font-size:14px;
+	letter-spacing:0;
+}
+
 .text_box { 
 	background-color:rgba(255, 255, 255, 1);
 	position:relative;
@@ -21,6 +31,7 @@ h1 {
 
 .submit_button{
 	text-align: center;
+	border: #72FF80;
 }
 
 .submit{
@@ -28,9 +39,9 @@ h1 {
   font-weight: 'bold';
   color:#00000;
   background-color: #72FF80;
+  border-color: #72FF80;
   position: relative;
   align-content: center;
-  border:0;
   border-top-left-radius:4px;
 	border-top-right-radius:4px;
 	border-bottom-left-radius:4px;

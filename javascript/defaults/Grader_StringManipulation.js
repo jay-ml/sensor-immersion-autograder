@@ -54,7 +54,6 @@ function remove_buttons(student_code) {
     while (count_var != 0){
         if (count_var == 1) {
             endIndex = altered_code.indexOf("})") + 2
-            console.log(endIndex);
         }
         altered_code = altered_code.replace("})","}]")
         count_var -= 1;
@@ -69,10 +68,7 @@ function remove_buttons(student_code) {
     while (count != 0) {
         altered_code = altered_code.replace("}]","buttonPressed = false;");
         count -= 1;
-    }
-    
-    console.log(altered_code);
-    
+    } 
 
     return altered_code;
 }

@@ -1,8 +1,8 @@
 /**
  * 
- * Autograder Template for Sensor Immersion Implementation
+ * L2.2 Soil Moisture Autograder for Sensor Immersion Implementation
  * 
- * Created: Jay Luther - 5/23/2022
+ * Created: Jay Luther - 6/7/2022
  * 
  * **/
 
@@ -12,6 +12,8 @@ let foreverLoop = false;
 let buttonPressed = false;
 let pass = false;
 let error = false;
+
+let soilMoistureGot = false;
 
 // Calls to execute student code, should be the same in every grader_L#.#_<sensor>.js file
 function execute_student_code() {
@@ -25,11 +27,11 @@ function execute_student_code() {
         error = true;
     }
     if (error) {
-        window.location.assign("/error.html");
+        window.location.assign("/html/error.html");
     } else if (pass) {
-        window.location.assign("/correct.html");
+        window.location.assign("/html/correct.html");
     } else {
-        window.location.assign("/wrong.html");
+        window.location.assign("/html/wrong.html");
     }
 }
 
@@ -46,6 +48,12 @@ class input extends InputDefault {
 }
 
 class led extends LedDefault {
+
+    static plotBarGraph(value1, value2) {
+        if (soilMoistureGot && value2 == 0.75){
+            pass = true;
+        }
+    }
     
 }
 
@@ -58,6 +66,12 @@ class gatorMicrophone extends GatorMicrophoneDefault {
 }
 
 class gatorSoil extends GatorSoilDefault {
+
+    static moisture(measurement, type, power) {
+        if (measurement == AnalogPin.P2 && power == DigitalPin.P1){
+            soilMoistureGot = true;
+        }
+    }
     
 }
 

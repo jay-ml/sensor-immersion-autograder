@@ -14,6 +14,17 @@ let buttonPressed = false;
 let pass = false;
 let error = false;
 
+let gatorEnvInit = false;
+let numberOfMeasurements = 0;
+let tempCGot = false;
+let tempFGot = false;
+let humidityGot = false;
+let vocsGot = false;
+let coGot = false;
+let pressureGot = false;
+
+let duplicateGot = false;
+
 // Calls to execute student code, should be the same in every grader_L#.#_<sensor>.js file
 function execute_student_code() {
     var student_code = document.getElementById('sc').value;
@@ -37,8 +48,15 @@ function execute_student_code() {
 // Logic of the grader: Load all libraries from defaults and extend
 // the necessary functions to establish correct responses
 
-// NOT IMPLEMENTED
+
 class basic extends BasicDefault {
+
+	static showNumber(number){
+        if (numberOfMeasurements >= 3 && duplicateGot == false) {
+            console.log("Tests Passed");
+            pass = true;
+        }
+    }
 
 }
 
@@ -46,7 +64,68 @@ class input extends InputDefault {
 
 }
 
+class led extends LedDefault {
+
+}
+
 class gatorEnvironment extends GatorEnvironmentDefault {
+
+	static beginEnvironment() {
+        console.log("Gator:bit Initialized");
+        gatorEnvInit = true;
+        return
+    }
+
+    static getMeasurement(value) {
+        if (!gatorEnvInit){
+            console.log("Gator Environment Not Initialized");
+        } else if (buttonPressed) {
+        	if (value == measurementType.degreesC) {
+        		if (!tempCGot){
+        			numberOfMeasurements += 1;
+        			tempCGot = true;
+        		} else {
+        			duplicateGot = true;
+        		}
+        	} else if (value == measurementType.degreesF) {
+        		if (!tempFGot){
+        			numberOfMeasurements += 1;
+        			tempFGot = true;
+        		} else {
+        			duplicateGot = true;
+        		}
+        	} else if (value == measurementType.humidity) {
+        		if (!humidityGot){
+        			numberOfMeasurements += 1;
+        			humidityGot = true;
+        		} else {
+        			duplicateGot = true;
+        		}
+        	} else if (value == measurementType.pressure) {
+        		if (!pressureGot){
+        			numberOfMeasurements += 1;
+        			pressureGot = true;
+        		} else {
+        			duplicateGot = true;
+        		}
+        	} else if (value == measurementType.eCO2) {
+        		if (!coGot){
+        			numberOfMeasurements += 1;
+        			coGot = true;
+        		} else {
+        			duplicateGot = true;
+        		}
+        	} else if (value == measurementType.TVOC) {
+        		if (!vocsGot){
+        			numberOfMeasurements += 1;
+        			vocsGot = true;
+        		} else {
+        			duplicateGot = true;
+        		}
+        	}
+
+        }
+    }
 
 }
 

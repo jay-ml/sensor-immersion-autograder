@@ -68,6 +68,10 @@ class led extends LedDefault {
 
 }
 
+class music extends MusicDefault {
+    
+}
+
 class gatorEnvironment extends GatorEnvironmentDefault {
 
 	static beginEnvironment() {

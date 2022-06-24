@@ -52,7 +52,10 @@ class led extends LedDefault {
         if (soundGot && value2 == 2000){
             pass = true;
         }
-    }
+    }   
+}
+
+class music extends MusicDefault {
     
 }
 

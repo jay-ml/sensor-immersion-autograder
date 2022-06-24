@@ -89,6 +89,10 @@ class led extends LedDefault {
     
 }
 
+class music extends MusicDefault {
+    
+}
+
 class gatorMicrophone extends GatorMicrophoneDefault {
 
 }

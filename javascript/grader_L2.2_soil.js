@@ -53,7 +53,10 @@ class led extends LedDefault {
         if (soilMoistureGot && value2 == 0.75){
             pass = true;
         }
-    }
+    }   
+}
+
+class music extends MusicDefault {
     
 }
 

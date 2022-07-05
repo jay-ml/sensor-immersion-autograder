@@ -27,11 +27,11 @@ function execute_student_code() {
         error = true;
     }
     if (error) {
-        window.location.assign("/html/error.html");
+        window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
-        window.location.assign("/html/correct.html");
+        window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else {
-        window.location.assign("/html/wrong.html");
+        window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
 }
 

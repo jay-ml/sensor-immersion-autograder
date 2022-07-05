@@ -25,11 +25,11 @@ function execute_student_code() {
         error = true;
     }
     if (error) {
-        window.location.assign("/error.html");
+        window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
-        window.location.assign("/correct.html");
+        window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else {
-        window.location.assign("/wrong.html");
+        window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
 }
 
@@ -50,7 +50,7 @@ class led extends LedDefault {
 }
 
 class music extends MusicDefault {
-    
+
 }
 
 class gatorEnvironment extends GatorEnvironmentDefault {

@@ -6,7 +6,6 @@
  * 
  * **/
  
-// NOT FINISHED
  class MusicDefault {
 
     static playMelody(noteString, bpm) {

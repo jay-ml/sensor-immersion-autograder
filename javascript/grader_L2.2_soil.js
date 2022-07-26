@@ -37,8 +37,6 @@ function execute_student_code() {
 
 // Logic of the grader: Load all libraries from defaults and extend
 // the necessary functions to establish correct responses
-
-// NOT IMPLEMENTED
 class basic extends BasicDefault {
 
 }

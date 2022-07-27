@@ -1,6 +1,6 @@
 /**
  * 
- * Autograder Template for Sensor Immersion Implementation
+ * Autograder L3.2 Soil for Sensor Immersion Implementation
  * 
  * Created: Jay Luther - 5/23/2022
  * 

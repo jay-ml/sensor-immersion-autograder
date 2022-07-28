@@ -13,20 +13,33 @@ let buttonPressed = false;
 let pass = false;
 let error = false;
 
+let first = true;
+let soilGot = false;
+let playedTone = false;
+let soil_value = 1;
+let num_icons = 0;
+let num_pauses = 0;
+
 // Calls to execute student code, should be the same in every grader_L#.#_<sensor>.js file
 function execute_student_code() {
     var student_code = document.getElementById('sc').value;
     let sc_1 = remove_input_functions(student_code);
     let runnable_code = remove_forever(sc_1);
     let result = Function(runnable_code);
+    let result2 = Function(runnable_code);
     try {
         result();
+        result2();
     } catch(e) {
         error = true;
     }
     if (error) {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
-    } else if (pass) {
+    }
+
+
+
+    if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
@@ -36,8 +49,15 @@ function execute_student_code() {
 // Logic of the grader: Load all libraries from defaults and extend
 // the necessary functions to establish correct responses
 
-// NOT IMPLEMENTED
 class basic extends BasicDefault {
+
+    static showIcon(icon){
+        num_icons += 1;
+    }
+
+    static pause(ms){
+        num_pauses += 1;
+    }
 
 }
 
@@ -50,6 +70,12 @@ class led extends LedDefault {
 }
 
 class music extends MusicDefault {
+
+    static playTone(note, beats){
+        if (soil_value < 0.5){
+            playedTone = true;
+        }
+    }
 
 }
 
@@ -66,6 +92,20 @@ class gatorMicrophone extends GatorMicrophoneDefault {
 }
 
 class gatorSoil extends GatorSoilDefault {
+
+    static moisture(analog, type, power){
+        if (analog == AnalogPin.P2 && power == DigitalPin.P1){
+            soilGot = true;
+        }
+        if (first == true) {
+            first = false;
+            return 1;
+        } else {
+            co2_value = 0;
+            return co2_value;
+        }
+    }
+    
     
 }
 

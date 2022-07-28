@@ -13,20 +13,35 @@ let buttonPressed = false;
 let pass = false;
 let error = false;
 
+let first = true;
+let iconShown = false;
+let tonePlayed = false;
+let soundGot = false;
+let plottedSound = false;
+let mic_value = 2500;
+
 // Calls to execute student code, should be the same in every grader_L#.#_<sensor>.js file
 function execute_student_code() {
     var student_code = document.getElementById('sc').value;
     let sc_1 = remove_input_functions(student_code);
     let runnable_code = remove_forever(sc_1);
     let result = Function(runnable_code);
+    let result2 = Function(runnable_code);
     try {
         result();
+        result2();
     } catch(e) {
         error = true;
     }
     if (error) {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
-    } else if (pass) {
+    }
+
+    if (iconShown && tonePlayed && plottedSound) {
+        pass = true;
+    }
+
+    if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
@@ -36,8 +51,14 @@ function execute_student_code() {
 // Logic of the grader: Load all libraries from defaults and extend
 // the necessary functions to establish correct responses
 
-// NOT IMPLEMENTED
 class basic extends BasicDefault {
+
+    static showIcon(icon){
+        if (mic_value > 1000){
+            iconShown = true;
+        }
+        return;
+    }
 
 }
 
@@ -46,10 +67,24 @@ class input extends InputDefault {
 }
 
 class led extends LedDefault {
+
+    static plotBarGraph(soundIntensity, maxim){
+        if (soundGot){
+            plottedSound = true;
+        }
+
+    }
     
 }
 
 class music extends MusicDefault {
+
+    static playTone(note, beats){
+        if (mic_value > 1000){
+            tonePlayed = true;
+        }
+
+    }
 
 }
 
@@ -62,7 +97,18 @@ class gatorEnvironment extends GatorEnvironmentDefault {
 }
 
 class gatorMicrophone extends GatorMicrophoneDefault {
-    
+
+    static getSoundIntensity() {
+        if (first){
+            first = false;
+            return mic_value;
+        } else if (mic_value > 1000){
+            mic_value = 1;
+            return mic_value;
+        } else {
+            soundGot = true;
+        }
+    }
 }
 
 class gatorSoil extends GatorSoilDefault {

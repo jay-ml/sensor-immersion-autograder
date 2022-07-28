@@ -13,6 +13,11 @@ let buttonPressed = false;
 let pass = false;
 let error = false;
 
+let stringShown = false;
+let measurementGot = false;
+let measurementShown = false;
+let switchThrown = false;
+
 // Calls to execute student code, should be the same in every grader_L#.#_<sensor>.js file
 function execute_student_code() {
     var student_code = document.getElementById('sc').value;
@@ -23,6 +28,9 @@ function execute_student_code() {
         result();
     } catch(e) {
         error = true;
+    }
+    if (stringShown && measurementGot && measurementShown){
+        pass = true;
     }
     if (error) {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
@@ -36,8 +44,17 @@ function execute_student_code() {
 // Logic of the grader: Load all libraries from defaults and extend
 // the necessary functions to establish correct responses
 
-// NOT IMPLEMENTED
 class basic extends BasicDefault {
+
+    static showString(s){
+        stringShown = true;
+    }
+
+    static showNumber(num){
+        if (measurementGot){
+            measurementShown = true;
+        }
+    }
 
 }
 
@@ -58,6 +75,12 @@ class neopixel extends NeopixelDefault {
 }
 
 class gatorEnvironment extends GatorEnvironmentDefault {
+
+    static getMeasurement(type){
+        if (type == measurementType.humidity || type == measurementType.pressure){
+            measurementGot = true;
+        }
+    }
 
 }
 

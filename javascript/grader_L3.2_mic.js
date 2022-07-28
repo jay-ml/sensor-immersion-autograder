@@ -13,6 +13,12 @@ let buttonPressed = false;
 let pass = false;
 let error = false;
 
+let neopixelInit = false;
+let screenCleared = false;
+let soundGot = false;
+let soundShown = false;
+let first = true;
+
 // Calls to execute student code, should be the same in every grader_L#.#_<sensor>.js file
 function execute_student_code() {
     var student_code = document.getElementById('sc').value;
@@ -24,6 +30,11 @@ function execute_student_code() {
     } catch(e) {
         error = true;
     }
+
+    if (screenCleared && neopixelInit && soundShown){
+        pass = true;
+    }
+
     if (error) {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
@@ -36,8 +47,11 @@ function execute_student_code() {
 // Logic of the grader: Load all libraries from defaults and extend
 // the necessary functions to establish correct responses
 
-// NOT IMPLEMENTED
 class basic extends BasicDefault {
+
+    static clearScreen(){
+        screenCleared = true;
+    }
 
 }
 
@@ -54,6 +68,18 @@ class music extends MusicDefault {
 }
 
 class neopixel extends NeopixelDefault {
+
+    static create(pin, leds, mode){
+        if (pin == DigitalPin.P12 && leds == 5){
+            neopixelInit = true;
+        }
+    }
+
+    showBarGraph(measured, max){
+        if (soundGot){
+            soundShown = true;
+        }
+    }
     
 }
 
@@ -62,6 +88,15 @@ class gatorEnvironment extends GatorEnvironmentDefault {
 }
 
 class gatorMicrophone extends GatorMicrophoneDefault {
+
+    static getSoundIntensity(){
+        if (first){
+            first = false;
+            return 1000;
+        } else {
+            soundGot = true;
+        }
+    }
     
 }
 

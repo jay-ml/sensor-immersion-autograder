@@ -13,6 +13,13 @@ let buttonPressed = false;
 let pass = false;
 let error = false;
 
+let ledCreated = false;
+let brightnessSet = false;
+let moistureGot = false;
+let moistureShown = false;
+let screenCleared = false;
+let first = true;
+
 // Calls to execute student code, should be the same in every grader_L#.#_<sensor>.js file
 function execute_student_code() {
     var student_code = document.getElementById('sc').value;
@@ -24,6 +31,11 @@ function execute_student_code() {
     } catch(e) {
         error = true;
     }
+
+    if (ledCreated && brightnessSet && moistureShown && screenCleared){
+        pass = true;
+    }
+
     if (error) {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
@@ -36,8 +48,11 @@ function execute_student_code() {
 // Logic of the grader: Load all libraries from defaults and extend
 // the necessary functions to establish correct responses
 
-// NOT IMPLEMENTED
 class basic extends BasicDefault {
+
+    static clearScreen(){
+        screenCleared = true;
+    }
 
 }
 
@@ -54,6 +69,22 @@ class music extends MusicDefault {
 }
 
 class neopixel extends NeopixelDefault {
+
+    static create(dataPin, numLEDs, mode){
+        ledCreated = true;
+    }
+
+    setBrightness(value){
+        if (value == 50){
+            brightnessSet = true;
+        }
+    }
+
+    showBarGraph(value, max){
+        if (moistureGot){
+            moistureShown = true;
+        }
+    }
     
 }
 
@@ -66,6 +97,17 @@ class gatorMicrophone extends GatorMicrophoneDefault {
 }
 
 class gatorSoil extends GatorSoilDefault {
+
+    static moisture(analog, type, power){
+        if (analog == AnalogPin.P2 && power == DigitalPin.P1){
+            if (first){
+                first = false;
+                return 0.25;
+            } else {
+                moistureGot = true;
+            }
+        }
+    }
     
 }
 

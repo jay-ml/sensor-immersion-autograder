@@ -57,12 +57,3 @@ h2 {
 	border-bottom-right-radius:4px;
 }
 
-body{
-	background-color: #ddd;
-}
-
-.carousel-item.active,
-.carousel-item-next,
-.carousel-item-prev{
-	display: block;
-}

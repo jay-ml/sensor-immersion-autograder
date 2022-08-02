@@ -32,12 +32,14 @@ function execute_student_code() {
     }
     if (error) {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
-    } else if (pass || partialPass) {
+    } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
-    } else if (!gatorEnvInit){
+    } else if (partialPass) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Env_Celsius.html");
+    }
+    else if (!gatorEnvInit){
         window.location.assign("/sensor-immersion-autograder/html/feedback/Env_NoInit.html");
-    } 
-    else {
+    } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
 }

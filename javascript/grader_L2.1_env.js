@@ -34,7 +34,10 @@ function execute_student_code() {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass || partialPass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
-    } else {
+    } else if (!gatorEnvInit){
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Env_NoInit.html");
+    } 
+    else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
 }

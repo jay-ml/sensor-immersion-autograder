@@ -33,15 +33,13 @@ function execute_student_code() {
     } catch(e) {
         error = true;
     }
-    if (error) {
-        window.location.assign("/sensor-immersion-autograder/html/error.html");
-    }
-
     if (iconShown && tonePlayed && plottedSound) {
         pass = true;
     }
 
-    if (pass) {
+    if (error) {
+        window.location.assign("/sensor-immersion-autograder/html/error.html");
+    } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
@@ -57,7 +55,6 @@ class basic extends BasicDefault {
         if (mic_value > 1000){
             iconShown = true;
         }
-        return;
     }
 
 }
@@ -72,7 +69,6 @@ class led extends LedDefault {
         if (soundGot){
             plottedSound = true;
         }
-
     }
     
 }

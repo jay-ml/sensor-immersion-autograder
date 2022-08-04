@@ -16,6 +16,7 @@ let error = false;
 let first = true;
 let co2Got = false;
 let playedTone = false;
+let logicError = false;
 let co2_value = 400;
 let num_icons = 0;
 let num_pauses = 0;
@@ -33,18 +34,18 @@ function execute_student_code() {
     } catch(e) {
         error = true;
     }
-    if (error) {
-        window.location.assign("/sensor-immersion-autograder/html/error.html");
-    } 
 
     if (co2got && playedTone && num_icons >= 2 && num_pauses >= 2){
         pass = true;
     }
-
-    if (pass) {
-        window.location.assign("/sensor-immersion-autograder/html/correct.html");
+    if (error) {
+        window.location.assign("/sensor-immersion-autograder/html/error.html");
+    } else if (pass) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Env_L3.1_Correct.html");
+    } else if (logicError) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Env_L3.1_LogicError.html");
     } else {
-        window.location.assign("/sensor-immersion-autograder/html/wrong.html");
+        window.location.assign("/sensor-immersion-autograder/html/Env_L3.1_ConfirmPausesIconsLogic.html");
     }
 }
 
@@ -76,6 +77,8 @@ class music extends MusicDefault {
     static playTone(note, beats){
         if (co2_value > 1000){
             playedTone = true;
+        } else {
+            logicError = true;
         }
     }
 

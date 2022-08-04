@@ -1,44 +1,44 @@
 <!DOCTYPE html> 
 <html>
 <head>
-	<title>Correct</title>
+	<title>Wrong</title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="/sensor-immersion-autograder/css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-	<h1>Correct!</h1>
-</br>
-	<center><img src="/sensor-immersion-autograder/images/correct_check.png" alt="correct check mark" style="width:250px;height:250px"></center>
+	<h1>Your code is incorrect!</h1>
 </br>
 <div id="accordion">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          Wiring Guide
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Logic
         </button>
       </h5>
     </div>
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-        Your code is correct! If it isn’t working as expected, double check your wiring <a href="https://docs.google.com/document/d/1ImyySsggWb83fH_bqrgn5fYdSNAkpBV_N31UL_JWuII/edit?usp=sharing">here.</a>
+        It looks like your alarm is going off when the CO2 levels are low, not high! Double check your 'if else' blocks.
       </div>
     </div>
   </div>
-  <div class="card">
+  <!-- <div class="card">
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Power Requirements
+          Hint #2
         </button>
       </h5>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-        If it still isn’t working, double check your power source! You should be using the 4 x AA battery pack connected to your gator:bit! If the gator:bit doesn’t have enough power, it could be showing weird values or not work at all!
+        The text for the second hint goes here.
       </div>
     </div>
   </div>
-  <!-- <div class="card">
+  <div class="card">
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -58,5 +58,9 @@
 		<button onclick="history.back()" class='retry'>Retry</button>
 		<button onclick="window.location='/sensor-immersion-autograder/home.html'" class='submit'>Home</button>
 	</center>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body> 
-</html> 
+</html>

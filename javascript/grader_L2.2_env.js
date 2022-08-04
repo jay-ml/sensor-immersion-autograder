@@ -12,6 +12,7 @@
 let foreverLoop = false;
 let buttonPressed = false;
 let pass = false;
+let partialPass = false;
 let error = false;
 
 let gatorEnvInit = false;
@@ -40,7 +41,14 @@ function execute_student_code() {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
-    } else {
+    } else if (partialPass) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Env_Celsius.html");
+    } else if (!gatorEnvInit) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Env_NoInit.html");
+    } else if (numberOfMeasurements < 3 || duplicateGot) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Env_FewerMeasurements.html");
+    }
+    else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
 }
@@ -53,8 +61,13 @@ class basic extends BasicDefault {
 
 	static showNumber(number){
         if (numberOfMeasurements >= 3 && duplicateGot == false) {
-            console.log("Tests Passed");
-            pass = true;
+            if (tempCGot && !tempFGot){
+                console.log("Tests Passed with Celsius");
+                partialPass = true;
+            } else {
+                console.log("Tests Passed");
+                pass = true;  
+            }
         }
     }
 
@@ -139,6 +152,10 @@ class gatorMicrophone extends GatorMicrophoneDefault {
 
 class gatorSoil extends GatorSoilDefault {
     
+}
+
+class neopixel extends NeopixelDefault {
+
 }
 
 

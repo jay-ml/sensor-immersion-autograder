@@ -11,6 +11,7 @@
 let foreverLoop = false;
 let buttonPressed = false;
 let pass = false;
+let partialPass = false;
 let error = false;
 
 let soundGot = false;
@@ -30,6 +31,8 @@ function execute_student_code() {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
+    } else if (partialPass) {
+        window.location.assign("/sensor-immersion-autograder/html/Mic_PlotGraphValues.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
@@ -51,6 +54,8 @@ class led extends LedDefault {
     static plotBarGraph(value1, value2) {
         if (soundGot && value2 == 2000){
             pass = true;
+        } else if (soundGot && value2 > 0 && value2 < 2500){
+            partialPass = true;
         }
     }   
 }
@@ -72,6 +77,10 @@ class gatorMicrophone extends GatorMicrophoneDefault {
 }
 
 class gatorSoil extends GatorSoilDefault {
+    
+}
+
+class neopixel extends NeopixelDefault {
     
 }
 

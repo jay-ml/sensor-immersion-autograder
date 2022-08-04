@@ -14,6 +14,7 @@ let pass = false;
 let error = false;
 
 let soilMoistureGot = false;
+let wrongPins = false;
 
 // Calls to execute student code, should be the same in every grader_L#.#_<sensor>.js file
 function execute_student_code() {
@@ -30,6 +31,8 @@ function execute_student_code() {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
+    } else if (wrongPins) {
+        window.location.assign("/sensor-immersion-autograder/html/Soil_WrongPins.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
@@ -41,7 +44,7 @@ function execute_student_code() {
 class basic extends BasicDefault {
 
     static showNumber(number){
-        if (soilMoistureGot) {
+        if (soilMoistureGot && !wrongPins) {
             pass = true;
         }
     }
@@ -73,8 +76,14 @@ class gatorSoil extends GatorSoilDefault {
     static moisture(measurement, type, power) {
         if (measurement == AnalogPin.P2 && power == DigitalPin.P1){
             soilMoistureGot = true;
+        } else {
+            soilMoistureGot = true;
+            wrongPins = true;
         }
-    }
+    }   
+}
+
+class neopixel extends NeopixelDefault {
     
 }
 

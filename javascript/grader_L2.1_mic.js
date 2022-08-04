@@ -79,6 +79,10 @@ class gatorSoil extends GatorSoilDefault {
     
 }
 
+class neopixel extends NeopixelDefault {
+    
+}
+
 // Refreshes the page when accessed via the back button
 window.addEventListener( "pageshow", function ( event ) {
   var historyTraversal = event.persisted || ( typeof window.performance != "undefined" && window.performance.navigation.type === 2 );

@@ -45,7 +45,7 @@ function execute_student_code() {
     } else if (logicError) {
         window.location.assign("/sensor-immersion-autograder/html/feedback/Env_L3.1_LogicError.html");
     } else {
-        window.location.assign("/sensor-immersion-autograder/html/Env_L3.1_ConfirmPausesIconsLogic.html");
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Env_L3.1_ConfirmPausesIconsLogic.html");
     }
 }
 

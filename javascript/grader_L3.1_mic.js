@@ -11,11 +11,13 @@
 let foreverLoop = false;
 let buttonPressed = false;
 let pass = false;
+let partialPass = false;
 let error = false;
 
 let first = true;
 let iconShown = false;
 let tonePlayed = false;
+let logicError = false;
 let soundGot = false;
 let plottedSound = false;
 let mic_value = 2500;
@@ -33,14 +35,24 @@ function execute_student_code() {
     } catch(e) {
         error = true;
     }
-    if (iconShown && tonePlayed && plottedSound) {
+    if (iconShown && tonePlayed && plottedSound && !logicError) {
         pass = true;
-    }
+    } else if (tonePlayed && plottedSound && !logicError) {
+        partialPass = true;
+    } 
 
     if (error) {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
+    } else if (partialPass) {
+        window.location.assign("/sensor-immersion-autograder/html/correct.html");
+    } else if (!tonePlayed) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_L3.1_NoTone.html");
+    } else if (logicError) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_L3.1_LogicError.html");
+    } else if (!plottedSound) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_L3.1_NoPlot.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
@@ -77,6 +89,9 @@ class music extends MusicDefault {
 
     static playTone(note, beats){
         if (mic_value > 1000){
+            tonePlayed = true;
+        } else {
+            logicError = true;
             tonePlayed = true;
         }
 

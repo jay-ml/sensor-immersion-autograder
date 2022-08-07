@@ -16,6 +16,8 @@ let error = false;
 let first = true;
 let soilGot = false;
 let playedTone = false;
+let logicError = false;
+let wrongPins = false;
 let soil_value = 1;
 let num_icons = 0;
 let num_pauses = 0;
@@ -35,12 +37,14 @@ function execute_student_code() {
     }
     if (error) {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
-    }
-
-
-
-    if (pass) {
+    } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
+    } else if (logicError) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.1_LogicError.html");
+    } else if (!playedTone) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.1_NoTone.html");
+    } else if (wrongPins) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.1_WrongPins.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
@@ -72,8 +76,9 @@ class led extends LedDefault {
 class music extends MusicDefault {
 
     static playTone(note, beats){
-        if (soil_value < 0.5){
-            playedTone = true;
+        playedTone = true;
+        if (soil_value > 0.5){
+            logicError = true;
         }
     }
 
@@ -96,6 +101,8 @@ class gatorSoil extends GatorSoilDefault {
     static moisture(analog, type, power){
         if (analog == AnalogPin.P2 && power == DigitalPin.P1){
             soilGot = true;
+        } else {
+            wrongPins = true;
         }
         if (first == true) {
             first = false;

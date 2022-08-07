@@ -35,6 +35,11 @@ function execute_student_code() {
     } catch(e) {
         error = true;
     }
+
+    if (soilGot && playedTone && !logicError && !wrongPins){
+        pass = true;
+    }
+
     if (error) {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {

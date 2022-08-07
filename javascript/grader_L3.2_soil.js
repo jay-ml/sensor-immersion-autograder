@@ -20,6 +20,10 @@ let moistureShown = false;
 let screenCleared = false;
 let first = true;
 
+let wrongPins = false;
+let wrongPinsSoil = false;
+let logicError = false;
+
 // Calls to execute student code, should be the same in every grader_L#.#_<sensor>.js file
 function execute_student_code() {
     var student_code = document.getElementById('sc').value;
@@ -30,6 +34,7 @@ function execute_student_code() {
         result();
     } catch(e) {
         error = true;
+        console.log(e);
     }
 
     if (ledCreated && brightnessSet && moistureShown && screenCleared){
@@ -40,6 +45,16 @@ function execute_student_code() {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
+    } else if (!ledCreated) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.2_NoInit.html");
+    } else if (wrongPins) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.2_WrongPinsLed.html");
+    } else if (wrongPinsSoil) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.2_WrongPinsSoil.html");
+    } else if (logicError) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.2_LogicError.html");
+    } else if (!brightnessSet) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.2_TooBright.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
@@ -72,6 +87,9 @@ class neopixel extends NeopixelDefault {
 
     static create(dataPin, numLEDs, mode){
         ledCreated = true;
+        if (dataPin != DigitalPin.P12 || numLEDs != 5){
+            wrongPins = true;
+        }
     }
 
     setBrightness(value){
@@ -102,10 +120,15 @@ class gatorSoil extends GatorSoilDefault {
         if (analog == AnalogPin.P2 && power == DigitalPin.P1){
             if (first){
                 first = false;
-                return 0.25;
+                return 0;
             } else {
                 moistureGot = true;
             }
+            if (!moistureGot){
+                logicError = true;
+            }
+        } else {
+            wrongPinsSoil = true;
         }
     }
     

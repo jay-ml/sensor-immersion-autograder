@@ -32,7 +32,7 @@ function execute_student_code() {
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else if (wrongPins) {
-        window.location.assign("/sensor-immersion-autograder/html/Soil_WrongPins.html");
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_WrongPins.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }

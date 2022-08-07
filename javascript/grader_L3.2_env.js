@@ -36,6 +36,8 @@ function execute_student_code() {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
+    } else if (!measurementGot) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Env_L3.2_MissingMeasurement.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }

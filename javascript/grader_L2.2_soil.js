@@ -34,11 +34,11 @@ function execute_student_code() {
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else if (partialPass) {
-        window.location.assign("/sensor-immersion-autograder/html/Soil_PlotGraphValues.html");
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_PlotGraphValues.html");
     } else if (wrongMaxValue && wrongPins) {
-        window.location.assign("/sensor-immersion-autograder/html/Soil_PlotAndPins.html");
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_PlotAndPins.html");
     } else if (wrongPins) {
-        window.location.assign("/sensor-immersion-autograder/html/Soil_WrongPins.html");
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_WrongPins.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }

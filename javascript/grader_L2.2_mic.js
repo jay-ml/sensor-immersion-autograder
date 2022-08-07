@@ -32,7 +32,7 @@ function execute_student_code() {
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else if (partialPass) {
-        window.location.assign("/sensor-immersion-autograder/html/Mic_PlotGraphValues.html");
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_PlotGraphValues.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }

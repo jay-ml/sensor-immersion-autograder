@@ -19,6 +19,8 @@ let soundGot = false;
 let soundShown = false;
 let first = true;
 
+let wrongPins = false;
+
 // Calls to execute student code, should be the same in every grader_L#.#_<sensor>.js file
 function execute_student_code() {
     var student_code = document.getElementById('sc').value;
@@ -39,6 +41,14 @@ function execute_student_code() {
         window.location.assign("/sensor-immersion-autograder/html/error.html");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
+    } else if (!neopixelInit) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_L3.2_NoInit.html");
+    } else if (wrongPins) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_L3.2_WrongPins.html");
+    } else if (!soundShown) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_L3.2_NoGraph.html");
+    } else if (!screenCleared) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_L3.2_ScreenOn.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }
@@ -70,8 +80,9 @@ class music extends MusicDefault {
 class neopixel extends NeopixelDefault {
 
     static create(pin, leds, mode){
-        if (pin == DigitalPin.P12 && leds == 5){
-            neopixelInit = true;
+        neopixelInit = true;
+        if (pin != DigitalPin.P12 || leds != 5){
+            wrongPins = true;
         }
     }
 

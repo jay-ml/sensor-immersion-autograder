@@ -89,6 +89,10 @@
         return;
     }
 
+    constructor(){
+        strip = new NeopixelDefault();
+    }
+
  }
 
 

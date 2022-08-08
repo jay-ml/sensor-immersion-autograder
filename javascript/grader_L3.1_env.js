@@ -35,7 +35,7 @@ function execute_student_code() {
         error = true;
     }
 
-    if (co2got && playedTone && num_icons >= 2 && num_pauses >= 2 && !logicError){
+    if (co2Got && playedTone && num_icons >= 2 && num_pauses >= 2 && !logicError){
         pass = true;
     }
     if (error) {

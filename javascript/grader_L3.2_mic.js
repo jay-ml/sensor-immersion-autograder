@@ -26,6 +26,7 @@ function execute_student_code() {
     var student_code = document.getElementById('sc').value;
     let sc_1 = remove_input_functions(student_code);
     let runnable_code = remove_forever(sc_1);
+    console.log(runnable_code);
     let result = Function(runnable_code);
     console.log(result);
     try {

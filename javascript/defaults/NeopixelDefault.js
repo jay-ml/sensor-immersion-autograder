@@ -90,7 +90,7 @@
     }
 
     constructor(){
-        strip = new NeopixelDefault();
+        this.strip = 1;
     }
 
  }

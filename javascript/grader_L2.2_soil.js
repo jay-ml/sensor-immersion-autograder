@@ -39,6 +39,8 @@ function execute_student_code() {
         window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_PlotAndPins.html");
     } else if (wrongPins) {
         window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_WrongPins.html");
+    } else if (!soilMoistureGot) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_NoMeasurement.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }

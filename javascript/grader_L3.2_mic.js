@@ -26,7 +26,7 @@ function execute_student_code() {
     var student_code = document.getElementById('sc').value;
     let sc_1 = remove_input_functions(student_code);
     let runnable_code = remove_forever(sc_1);
-    let runnable_code = runnable_code.replace(": neopixel.Strip", "");
+    runnable_code = runnable_code.replace(": neopixel.Strip", "");
     console.log(runnable_code);
     let result = Function(runnable_code);
     try {

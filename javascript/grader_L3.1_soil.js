@@ -35,6 +35,7 @@ function execute_student_code() {
         result2();
     } catch(e) {
         error = true;
+        console.log(e);
     }
 
     if (soilGot && playedTone && !logicError && !wrongPins){

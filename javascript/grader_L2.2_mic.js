@@ -33,6 +33,8 @@ function execute_student_code() {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else if (partialPass) {
         window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_PlotGraphValues.html");
+    } else if (!soundGot) {
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_NoSoundVariable.html");
     } else {
         window.location.assign("/sensor-immersion-autograder/html/wrong.html");
     }

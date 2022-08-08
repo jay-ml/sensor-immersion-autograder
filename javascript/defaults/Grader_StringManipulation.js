@@ -17,7 +17,9 @@ function remove_forever(student_code) {
     let foreverIndex = student_code.indexOf("basic.forever(function () {")
     if (foreverIndex != -1) {
         let sc_1 = student_code.replace("basic.forever(function () {","foreverLoop = true;");
+        console.log(sc_1);
         let sc_2 = sc_1.replace(": neopixel.Strip"," ");
+        console.log(sc_2);
         let bracketIndex = sc_2.indexOf("})", foreverIndex);
         let altered_code = sc_2.substring(0,bracketIndex) + 
                             "foreverLoop = false;" + 

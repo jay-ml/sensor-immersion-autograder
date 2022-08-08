@@ -27,6 +27,7 @@ function execute_student_code() {
     let sc_1 = remove_input_functions(student_code);
     let runnable_code = remove_forever(sc_1);
     let result = Function(runnable_code);
+    console.log(result);
     try {
         result();
     } catch(e) {

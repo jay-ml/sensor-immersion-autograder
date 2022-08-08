@@ -111,6 +111,7 @@ class gatorSoil extends GatorSoilDefault {
         } else {
             wrongPins = true;
         }
+        
         if (first == true) {
             first = false;
             soil_value = 1;

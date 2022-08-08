@@ -113,8 +113,10 @@ class gatorSoil extends GatorSoilDefault {
         }
         if (first == true) {
             first = false;
+            soil_value = 1;
             return 1;
         } else {
+            soil_value = 0;
             return 0;
         }
     }

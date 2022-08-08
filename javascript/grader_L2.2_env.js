@@ -36,6 +36,8 @@ function execute_student_code() {
         result();
     } catch(e) {
         error = true;
+        console.log(e);
+        console.log(runnable_code);
     }
     if (error) {
         window.location.assign("/sensor-immersion-autograder/html/error.html");

@@ -114,8 +114,7 @@ class gatorSoil extends GatorSoilDefault {
             first = false;
             return 1;
         } else {
-            co2_value = 0;
-            return co2_value;
+            return 0;
         }
     }
     

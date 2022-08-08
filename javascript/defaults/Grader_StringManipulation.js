@@ -74,33 +74,33 @@ function remove_buttons(student_code) {
 }
 
 function replace_input_headers(code) {
-    code = code.replace("input.onButtonPressed(Button.A, function () {","buttonPressed = true;");
-    code = code.replace("input.onButtonPressed(Button.AB, function () {","buttonPressed = true;");
-    code = code.replace("input.onButtonPressed(Button.B, function () {","buttonPressed = true;");
+    code = code.replace("input.onButtonPressed(Button.A, function () {",";buttonPressed = true;");
+    code = code.replace("input.onButtonPressed(Button.AB, function () {",";buttonPressed = true;");
+    code = code.replace("input.onButtonPressed(Button.B, function () {",";buttonPressed = true;");
 
-    code = code.replace("input.onGesture(Gesture.Shake, function () {","buttonPressed = true;");
-    code = code.replace("input.onGesture(Gesture.LogoUp, function () {","buttonPressed = true;");
-    code = code.replace("input.onGesture(Gesture.ScreenUp, function () {","buttonPressed = true;");
-    code = code.replace("input.onGesture(Gesture.LogoDown, function () {","buttonPressed = true;");
-    code = code.replace("input.onGesture(Gesture.FreeFall, function () {","buttonPressed = true;");
-    code = code.replace("input.onGesture(Gesture.TiltLeft, function () {","buttonPressed = true;");
-    code = code.replace("input.onGesture(Gesture.ScreenDown, function () {","buttonPressed = true;");
-    code = code.replace("input.onGesture(Gesture.TiltRight, function () {","buttonPressed = true;");
-    code = code.replace("input.onGesture(Gesture.EightG, function () {","buttonPressed = true;");
-    code = code.replace("input.onGesture(Gesture.SixG, function () {","buttonPressed = true;");
-    code = code.replace("input.onGesture(Gesture.ThreeG, function () {","buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.Shake, function () {",";buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.LogoUp, function () {",";buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.ScreenUp, function () {",";buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.LogoDown, function () {",";buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.FreeFall, function () {",";buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.TiltLeft, function () {",";buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.ScreenDown, function () {",";buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.TiltRight, function () {",";buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.EightG, function () {",";buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.SixG, function () {",";buttonPressed = true;");
+    code = code.replace("input.onGesture(Gesture.ThreeG, function () {",";buttonPressed = true;");
 
-    code = code.replace("input.onPinPressed(TouchPin.P0, function () {","buttonPressed = true;");
-    code = code.replace("input.onPinPressed(TouchPin.P1, function () {","buttonPressed = true;");
-    code = code.replace("input.onPinPressed(TouchPin.P2, function () {","buttonPressed = true;");
+    code = code.replace("input.onPinPressed(TouchPin.P0, function () {",";buttonPressed = true;");
+    code = code.replace("input.onPinPressed(TouchPin.P1, function () {",";buttonPressed = true;");
+    code = code.replace("input.onPinPressed(TouchPin.P2, function () {",";buttonPressed = true;");
 
-    code = code.replace("input.onSound(DetectedSound.Loud, function () {","buttonPressed = true;");
-    code = code.replace("input.onSound(DetectedSound.Quiet, function () {","buttonPressed = true;");
+    code = code.replace("input.onSound(DetectedSound.Loud, function () {",";buttonPressed = true;");
+    code = code.replace("input.onSound(DetectedSound.Quiet, function () {",";buttonPressed = true;");
 
-    code = code.replace("input.onLogoEvent(TouchButtonEvent.LongPressed, function () {","buttonPressed = true;");
-    code = code.replace("input.onLogoEvent(TouchButtonEvent.Touched, function () {","buttonPressed = true;");
-    code = code.replace("input.onLogoEvent(TouchButtonEvent.Pressed, function () {","buttonPressed = true;");
-    code = code.replace("input.onLogoEvent(TouchButtonEvent.Released, function () {","buttonPressed = true;");
+    code = code.replace("input.onLogoEvent(TouchButtonEvent.LongPressed, function () {",";buttonPressed = true;");
+    code = code.replace("input.onLogoEvent(TouchButtonEvent.Touched, function () {",";buttonPressed = true;");
+    code = code.replace("input.onLogoEvent(TouchButtonEvent.Pressed, function () {",";buttonPressed = true;");
+    code = code.replace("input.onLogoEvent(TouchButtonEvent.Released, function () {",";buttonPressed = true;");
 
     return code;
 }

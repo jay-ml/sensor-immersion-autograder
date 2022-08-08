@@ -90,7 +90,7 @@
     }
 
     constructor(){
-        this.strip = 1;
+        return;
     }
 
  }

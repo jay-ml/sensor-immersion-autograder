@@ -36,7 +36,7 @@ function execute_student_code() {
         console.log(e);
     }
 
-    if (screenCleared && neopixelInit && soundShown){
+    if (screenCleared && neopixelInit && soundShown && !wrongPins){
         pass = true;
     }
 

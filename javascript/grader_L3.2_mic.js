@@ -84,7 +84,7 @@ class music extends MusicDefault {
 class neopixel extends NeopixelDefault {
 
     static create(pin, leds, mode){
-        super(pin, leds);
+        constructor(pin, leds);
         neopixelInit = true;
         if (pin != DigitalPin.P12 || leds != 5){
             wrongPins = true;
@@ -95,6 +95,10 @@ class neopixel extends NeopixelDefault {
         if (soundGot){
             soundShown = true;
         }
+    }
+
+    constructor(pin, leds){
+        super(pin, leds);
     }
     
 }

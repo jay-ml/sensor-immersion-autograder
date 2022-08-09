@@ -103,6 +103,10 @@ class neopixel extends NeopixelDefault {
             moistureShown = true;
         }
     }
+
+    constructor(pin, leds){
+        super(pin, leds);
+    }
     
 }
 

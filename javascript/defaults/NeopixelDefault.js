@@ -10,7 +10,7 @@
  class NeopixelDefault {
 
     static create(pin, leds, mode) {
-        constructor(pin, leds);
+        return new NeopixelDefault(pin, leds);
     }
 
     static colors(color) {

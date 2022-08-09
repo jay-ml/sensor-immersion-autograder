@@ -42,7 +42,7 @@ function execute_student_code() {
 
     if (error) {
         //window.location.assign("/sensor-immersion-autograder/html/error.html");
-        console.log("Error : Staying Here");
+        console.log("Error : Staying");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else if (!neopixelInit) {
@@ -84,6 +84,7 @@ class music extends MusicDefault {
 class neopixel extends NeopixelDefault {
 
     static create(pin, leds, mode){
+        super();
         neopixelInit = true;
         if (pin != DigitalPin.P12 || leds != 5){
             wrongPins = true;

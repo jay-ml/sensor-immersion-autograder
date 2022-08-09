@@ -27,13 +27,11 @@ function execute_student_code() {
     let sc_1 = remove_input_functions(student_code);
     let runnable_code = remove_forever(sc_1);
     runnable_code = runnable_code.replace(": neopixel.Strip", "");
-    console.log(runnable_code);
     let result = Function(runnable_code);
     try {
         result();
     } catch(e) {
         error = true;
-        console.log(e);
     }
 
     if (screenCleared && neopixelInit && soundShown && !wrongPins){
@@ -41,11 +39,9 @@ function execute_student_code() {
     }
 
     if (error) {
-        window.location.assign("/sensor-immersion-autograder/html/error.html");
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_L3.2_NoInit.html");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
-    } else if (!neopixelInit) {
-        window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_L3.2_NoInit.html");
     } else if (wrongPins) {
         window.location.assign("/sensor-immersion-autograder/html/feedback/Mic_L3.2_WrongPins.html");
     } else if (!soundShown) {

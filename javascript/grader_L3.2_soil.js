@@ -42,11 +42,9 @@ function execute_student_code() {
     }
 
     if (error) {
-        window.location.assign("/sensor-immersion-autograder/html/error.html");
+        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.2_NoInit.html");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
-    } else if (!ledCreated) {
-        window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.2_NoInit.html");
     } else if (wrongPins) {
         window.location.assign("/sensor-immersion-autograder/html/feedback/Soil_L3.2_WrongPinsLed.html");
     } else if (wrongPinsSoil) {

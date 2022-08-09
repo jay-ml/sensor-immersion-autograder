@@ -89,7 +89,7 @@ class neopixel extends NeopixelDefault {
         if (dataPin != DigitalPin.P12 || numLEDs != 5){
             wrongPins = true;
         }
-        return new neopixel(pin, leds);
+        return new neopixel(dataPin, numLEDs);
     }
 
     setBrightness(value){

@@ -33,6 +33,7 @@ function execute_student_code() {
         result();
     } catch(e) {
         error = true;
+        console.log(e);
     }
 
     if (screenCleared && neopixelInit && soundShown){
@@ -40,7 +41,8 @@ function execute_student_code() {
     }
 
     if (error) {
-        window.location.assign("/sensor-immersion-autograder/html/error.html");
+        //window.location.assign("/sensor-immersion-autograder/html/error.html");
+        console.log("Error : Staying Here");
     } else if (pass) {
         window.location.assign("/sensor-immersion-autograder/html/correct.html");
     } else if (!neopixelInit) {

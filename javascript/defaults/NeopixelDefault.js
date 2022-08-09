@@ -10,7 +10,7 @@
  class NeopixelDefault {
 
     static create(pin, leds, mode) {
-        constructor();
+        constructor(pin, leds);
     }
 
     static colors(color) {
@@ -89,8 +89,10 @@
         return;
     }
 
-    constructor(){
-        this.instantiated = true;
+    constructor(pin, leds){
+        this.pin = pin;
+        this.numLEDs = leds;
+
     }
 
  }

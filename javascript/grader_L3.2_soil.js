@@ -38,7 +38,7 @@ function execute_student_code() {
         console.log(e);
     }
 
-    if (ledCreated && brightnessSet && moistureShown && screenCleared){
+    if (ledCreated && brightnessSet && moistureShown && screenCleared && !wrongPins && !wrongPinsSoil && !logicError){
         pass = true;
     }
 

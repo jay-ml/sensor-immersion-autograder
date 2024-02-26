@@ -1,6 +1,6 @@
 # Sensor Immersion Autograder
 
-This is a HTML / CSS / Javascript autograder that is designed to be used with the Sensor Immersion Curriculum. 
+This is a HTML / CSS / Javascript autograder that is designed to be used with the Sensor Immersion Curriculum for the NSF Institute for Student-AI Teaming at the University of Colorado Boulder. 
 
 # Front End
 The front-end of the autograder is similar in design to the Tutorial Map used by the Sensor Immersion Curriculum for its tutorials. When you click a specific tutorial, you are brought to a window in which to paste your javascript code from Makecode. On clicking Submit, this code is executed in the back end and produces either a Pass, Fail, or indicates an Error within the autograder system. Each outcome provides further feedback using the results of the tests and displays this alongside the results.
